@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error - Alif Danial Nasri</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #2B0A45 0%, #4A1575 50%, #6D28D9 100%);
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+        animation: pulse 8s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: float 20s linear infinite;
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(50px);
+          opacity: 0;
+        }
+      }
+
+      .content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        padding: 2rem;
+        max-width: 800px;
+      }
+
+      .error-code {
+        font-size: clamp(4rem, 12vw, 8rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #fca5a5 0%, #f87171 50%, #ef4444 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1;
+      }
+
+      .error-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .error-message {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 180%;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+      }
+
+      .error-link {
+        display: inline-block;
+        padding: 0.875rem 2rem;
+        background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+        color: #1f1f2e;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4);
+        letter-spacing: 0.5px;
+      }
+
+      .error-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px rgba(167, 139, 250, 0.6);
+      }
+
+      .fade-in {
+        animation: fadeIn 1.2s ease-out forwards;
+        opacity: 0;
+      }
+
+      .fade-in-delay {
+        animation: fadeIn 1.2s ease-out 0.3s forwards;
+        opacity: 0;
+      }
+
+      .fade-in-delay-2 {
+        animation: fadeIn 1.2s ease-out 0.6s forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 2rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-weight: 300;
+        z-index: 10;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          padding: 1.5rem;
+        }
+
+        .error-link {
+          padding: 0.75rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .content {
+          padding: 1rem;
+        }
+
+        .error-code {
+          margin-bottom: 0.5rem;
+        }
+
+        .error-title {
+          margin-bottom: 0.75rem;
+        }
+
+        .error-message {
+          margin-bottom: 1.5rem;
+        }
+
+        .footer {
+          bottom: 1.5rem;
+          font-size: 0.8rem;
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="error-code fade-in">404</div>
+        <h1 class="error-title fade-in-delay">Page Not Found</h1>
+        <p class="error-message fade-in-delay-2">Sorry, the page you're looking for doesn't exist. This website is still under development.</p>
+        <a href="/" class="error-link fade-in-delay-2">Return Home</a>
+      </div>
+      <footer class="footer fade-in-delay-2">
+        <p>&copy; 2025 Alif Danial Nasri. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script>
+      function createFloatingParticles() {
+        const container = document.querySelector('.container')
+        const particleCount = 20
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div')
+          particle.className = 'particle'
+          particle.style.left = `${Math.random() * 100}%`
+          particle.style.top = `${Math.random() * 100}%`
+          particle.style.animationDelay = `${Math.random() * 5}s`
+          particle.style.animationDuration = `${15 + Math.random() * 10}s`
+          container.appendChild(particle)
+        }
+      }
+
+      createFloatingParticles()
+    </script>
+  </body>
+</html>
